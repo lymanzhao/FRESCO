@@ -1,23 +1,23 @@
 # data
 file_path: './data/music.mp4'
 save_path: './output/music/'
-mininterv: 10 # for keyframe selection
-maxinterv: 30 # for keyframe selection
+mininterv: 10
+maxinterv: 30
 
-# diffusion
+# flux diffusion
 seed: 0
 prompt: 'A beautiful woman with headphones listening to music in CG cyberpunk style, neon, closed eyes, colorful'
-sd_path: 'stablediffusionapi/rev-animated' 
+model_path: 'black-forest-labs/FLUX.1-dev'  # or FLUX.1-schnell
+max_sequence_length: 512
+guidance_scale: 3.5  # 0.0 for schnell
 use_controlnet: True
-controlnet_type: 'hed'  # 'depth', 'canny'
+controlnet_type: 'canny'
 cond_scale: 1.0
-use_freeu: False
 
 # video-to-video translation 
-batch_size: 8
-num_inference_steps: 20
+batch_size: 3
+num_inference_steps: 20  # 4 for schnell
 num_warmup_steps: 3
-end_opt_step: 15
 run_ebsynth: False
 max_process: 4
 
